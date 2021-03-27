@@ -19,7 +19,7 @@ const storage = multer.diskStorage({
         }
 
         // use callback function to define the destination directory
-        cb(error, "backend/images");
+        cb(error, "./images");
     },
 
     // use this function to construct the file name
