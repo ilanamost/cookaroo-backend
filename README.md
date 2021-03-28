@@ -8,5 +8,3 @@ Instructions:
 4. Run the frontend using: 'ng serve'.
 5. Open the browser to http://localhost:4200
 
-Run the site at:
-https://cookaroo.herokuapp.com/
