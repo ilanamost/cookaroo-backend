@@ -1,4 +1,5 @@
 const Recipe = require("../models/recipe");
+const { getProtocol } = require("../utils");
 
 exports.getRecipes = (req, res, next) => {
     const pageSize = +req.query.pagesize;
@@ -53,7 +54,8 @@ exports.getRecipes = (req, res, next) => {
 }
 
 exports.createRecipe = (req, res, next) => {
-    const url = req.protocol + "://" + req.get("host");
+    const protocol = getProtocol();
+    const url = protocol + req.get("host");
     let recipe = new Recipe({
         name: req.body.name,
         description: req.body.description,
@@ -83,9 +85,10 @@ exports.createRecipe = (req, res, next) => {
 }
 
 exports.updateRecipe = (req, res, next) => {
+    const protocol = getProtocol();
     let imagePath = req.body.imagePath || '';
     if (req.file) {
-        const url = req.protocol + "://" + req.get("host");
+        const url = protocol + req.get("host");
         imagePath = url + "/images/" + req.file.filename;
     }
     const recipe = new Recipe({
@@ -136,5 +139,5 @@ exports.deleteRecipe = (req, res, next) => {
         res.status(500).json({
             message: 'Deleting post failed!'
         });
-    });;;
+    });
 }
