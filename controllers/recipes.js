@@ -67,6 +67,7 @@ exports.createRecipe = (req, res, next) => {
 
     if(req.file) {
         recipe.imagePath = url + "/images/" + req.file.filename;
+        console.log('recipe.imagePath', recipe.imagePath);
     }
 
     recipe.save().then(createdRecipe => {
