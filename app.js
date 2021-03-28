@@ -8,7 +8,7 @@ const userRoutes = require("./routes/user");
 const app = express();
 
 mongoose.connect(
-    "mongodb+srv://max:" + process.env.MONGO_ATLAS_PW + "@cluster0.osga8.mongodb.net/cookaroo-db",
+    "mongodb+srv://Ilana:" + process.env.MONGO_ATLAS_PW + "@cluster0.osga8.mongodb.net/cookaroo-db",
     { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }
   )
   .then(() => {
